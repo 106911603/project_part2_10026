@@ -31,16 +31,38 @@ Contents
  
 /* 
     1. Colour reference
-    #1f3a5f  dark blue   - header, headings
-    #14263d  navy        - footer background
-    #1a5aa6  blue        - links
-    #c2410c  orange      - buttons, accents
-    #9a3412  dark orange - button hover, aside headings
-    #fff7ed  light peach - aside background
-    #f6f5f2  off-white   - page background
-    #222222  near-black  - body text
-    #ffdd57  yellow      - keyboard focus highlight
+    Pallete use guide:
+    - Dark red: header, headings and card borders.
+    - Bright red: filled background with white text on top (buttons).
+    - Brass: thin lines, borders and small headings.
+
+    Reds
+    #6a1424  dark red     - header, headings, job card top border
+    #360a12  deep maroon  - footer background
+    #8a2a3a  mid red      - menu link hover
+    #a11d33  link red     - links
+    #b3202f  bright red   - button background
+    #8c1826  button red   - button background on hover
+    #f5edea  pale blush   - job summary and vacancy link backgrounds
+
+    Brass
+    #b07d2b  brass        - accent lines
+    #7a5312  dark brass   - aside headings, reference code text, step numbers
+    #e3b765  light brass  - underline for the current page in the menu
+    #fbf4e4  cream        - aside and reference code background
+
+    Neutrals
+    #f6f5f2  off-white    - page background
+    #ffffff  white        - cards, text on dark backgrounds
+    #d6d3cc  grey         - card borders
+    #e8e5de  light grey   - line under job section headings
+    #222222  near-black   - body text
+    #111111  black        - keyboard focus outline
+
+    Highlight
+    #ffdd57  yellow       - keyboard focus highlight, footer link hover
 */
+
 
 /* 2. Base styles (all pages) */
 
