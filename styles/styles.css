@@ -83,7 +83,7 @@ body {
 h1, h2, h3, h4 {
     font-family: Georgia, "Times New Roman", serif;
     line-height: 1.25;
-    color: #1f3a5f;
+    color: #6a1424;
 }
  
 h1 {
@@ -114,14 +114,15 @@ h4 {
 }
  
 a {
-    color: #1a5aa6;
+    color: #a11d33;
 }
  
 a:hover {
-    color: #0f3d73;
+    color: #6a1424;
     text-decoration-thickness: 2px;
 }
  
+/* Claude suggestion */
 img {
     max-width: 100%;
 }
