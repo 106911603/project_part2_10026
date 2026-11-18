@@ -2,13 +2,19 @@
 
 filename: styles.css  
 
-author: Minh Nguyen
+author: Minh Nguyen (sections 1 to 5, and 9)
+        Sections 6 to 8 were written by the respective group members.
 
 created: 10/23/2026
 
-last modified: 10/29/2026
+last modified: 18/11/2026
 
-description: This file contains the CSS for the website, including all 4 pages.
+description: The external stylesheet for the LearnBridge Careers
+             website. Styles all 4 pages.
+
+acknowledgements: Generative AI (Claude, by Anthropic) was used to review
+                  sections 4 to help with layout.
+                  All code was checked and edited by the author.
 
 Contents
     1.  Colour reference
@@ -16,9 +22,9 @@ Contents
     3.  Header and main menu (all pages)
     4.  Footer (all pages)
     5.  Jobs page (jobs.html)
-    6.  Home page (index.html)   - to be added by teammate
-    7.  Apply page (apply.html)  - to be added by teammate
-    8.  About page (about.html)  - to be added by teammate
+    6.  Home page (index.html)
+    7.  Apply page (apply.html)
+    8.  About page (about.html)
     9.  Accessibility: skip link and keyboard focus
 */
  
