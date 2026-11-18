@@ -1,0 +1,911 @@
+/*
+
+filename: styles.css  
+
+author: Minh Nguyen
+
+created: 10/23/2026
+
+last modified: 10/29/2026
+
+description: This file contains the CSS for the website, including all 4 pages.
+
+Contents
+    1.  Colour reference
+    2.  Base styles (all pages)
+    3.  Header and main menu (all pages)
+    4.  Footer (all pages)
+    5.  Jobs page (jobs.html)
+    6.  Home page (index.html)   - to be added by teammate
+    7.  Apply page (apply.html)  - to be added by teammate
+    8.  About page (about.html)  - to be added by teammate
+    9.  Accessibility: skip link and keyboard focus
+*/
+ 
+ 
+/* 
+    1. Colour reference
+    #1f3a5f  dark blue   - header, headings
+    #14263d  navy        - footer background
+    #1a5aa6  blue        - links
+    #c2410c  orange      - buttons, accents
+    #9a3412  dark orange - button hover, aside headings
+    #fff7ed  light peach - aside background
+    #f6f5f2  off-white   - page background
+    #222222  near-black  - body text
+    #ffdd57  yellow      - keyboard focus highlight
+*/
+
+/* 2. Base styles (all pages) */
+
+/* Width and height include padding and border */
+* {
+    box-sizing: border-box;
+}
+ 
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1rem;          
+    line-height: 1.6;         
+    color: #222222;
+    background-color: #f6f5f2;
+}
+
+h1, h2, h3, h4 {
+    font-family: Georgia, "Times New Roman", serif;
+    line-height: 1.25;
+    color: #1f3a5f;
+}
+ 
+h1 {
+    font-size: 2.25rem;
+    margin-top: 0;
+}
+ 
+h2 {
+    font-size: 1.6rem;
+}
+ 
+h3 {
+    font-size: 1.25rem;
+}
+ 
+h4 {
+    font-size: 1.05rem;
+    margin-bottom: 0.25rem;
+}
+ 
+a {
+    color: #1a5aa6;
+}
+ 
+a:hover {
+    color: #0f3d73;
+    text-decoration-thickness: 2px;
+}
+ 
+/* Dotted Underline for Abbreviations */
+abbr[title] {
+    text-decoration: underline dotted;    
+    cursor: help;
+}
+
+#main {
+    max-width: 75rem;            /* stops lines getting too long on wide screens */
+    margin: 0 auto;              /* centers the content */
+    padding: 2rem 1.5rem;
+}
+ 
+ 
+/* 3. Header and main menu (all pages) */
+ 
+.site-header {
+    display: flex;             /* logo on the left, menu on the right */
+    flex-wrap: wrap;           /* menu drops below the logo on small screens */
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.5rem 2rem;
+    padding: 1rem 1.5rem;
+    background-color: #1f3a5f;
+    color: #ffffff;
+}
+ 
+.logo {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: bold;
+    letter-spacing: 0.03em;
+}
+ 
+.menu {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;            /* removes the bullet points */
+}
+ 
+.menu > li {
+    margin: 0;
+}
+ 
+.menu a {
+    display: block;              /* makes the area clickable */
+    padding: 0.5rem 0.9rem;
+    color: #ffffff;
+    text-decoration: none;
+    border-bottom: 3px solid transparent;
+}
+ 
+.menu a:hover {
+    color: #ffffff;
+    background-color: #2c4f7c;
+    border-bottom-color: #ffffff;
+}
+ 
+/* Highlights the page the user is on */
+.menu a[aria-current="page"] {
+    font-weight: bold;
+    border-bottom-color: #f2a65a;
+}
+ 
+
+/* 4. Footer (all pages) */
+ 
+.site-footer {
+    margin-top: 2rem;
+    padding: 2rem 1.5rem;
+    background-color: #14263d;
+    color: #f0f0f0;
+}
+ 
+/* Center everything inside the footer.
+   72rem lines the footer text up with main
+   (75rem minus the 1.5rem padding on each side) (Claude help) */
+.site-footer > * {
+    max-width: 72rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+ 
+.site-footer h2 {
+    margin-top: 0;
+    font-size: 1.2rem;
+    color: #ffffff;
+}
+ 
+ 
+/* 5. Jobs page (jobs.html) */
+ 
+/* Page introduction */
+ 
+/* make the intro paragraphs slightly larger */
+.page-intro p {
+    font-size: 1.125rem;
+}
+ 
+/* Current vacancies menu */
+ 
+.job-links {
+    margin-bottom: 2rem;
+    padding: 1rem 1.5rem;
+    background-color: #ffffff;
+    border: 1px solid #d6d3cc;
+    border-radius: 6px;
+}
+ 
+.job-links h2 {
+    margin: 0 0 0.75rem;
+    font-size: 1.25rem;
+}
+ 
+.job-links ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;                  /* removes the bullet points */
+}
+ 
+/* Pill buttons */
+.job-links a {
+    display: inline-block;
+    padding: 0.4rem 0.8rem;
+    border: 2px solid #1a5aa6;
+    border-radius: 999px;
+    text-decoration: none;
+}
+ 
+.job-links a:hover {
+    color: #ffffff;
+    background-color: #1a5aa6;
+}
+ 
+.job-list {
+  float: left;
+  width: 72%;
+}
+ 
+/* Aside requirement: floated right, 25% width, margin, padding and border */
+.sidebar {
+    float: right;
+    width: 25%;
+    margin: 0 0 1.5rem 3%;
+    padding: 1.25rem;
+    border: 2px solid #c2410c;
+    border-radius: 6px;
+    background-color: #fff7ed;
+}
+  
+/* Sidebar contents */
+ 
+.sidebar h2 {
+    margin-top: 0;
+    font-size: 1.25rem;
+    color: #9a3412;
+}
+ 
+.sidebar ol {
+    padding-left: 1.25rem;
+}
+ 
+.sidebar li {
+    margin-bottom: 0.5rem;
+}
+ 
+/* Remove extra space under the last paragraph */
+.sidebar p:last-child {
+    margin-bottom: 0;
+}
+ 
+/* Job cards */
+ 
+.job {
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background-color: #ffffff;
+    border: 1px solid #d6d3cc;
+    border-top: 6px solid #1f3a5f;
+    border-radius: 6px;
+}
+ 
+.job h2 {
+    margin-top: 0;
+}
+ 
+.job section {
+    margin-top: 1.25rem;
+}
+ 
+.job h3 {
+    padding-bottom: 0.25rem;
+    border-bottom: 2px solid #e8e5de;
+}
+ 
+.job ul {
+    padding-left: 1.25rem;
+}
+ 
+.job li {
+    margin-bottom: 0.25rem;
+}
+ 
+/* Lists directly after an h4 sit closer to its heading */
+.job h4 + ul {
+    margin-top: 0.25rem;
+}
+ 
+/* Job summary */
+ 
+.job-summary {
+    display: grid;                /* places dt and dd on the same line */
+    grid-template-columns: 10rem 1fr;
+    gap: 0.4rem 1rem;
+    margin: 0 0 1rem;
+    padding: 1rem;
+    background-color: #f0f4f8;
+    border-radius: 4px;
+}
+ 
+.job-summary dt {
+    font-weight: bold;
+    color: #1f3a5f;
+}
+ 
+.job-summary dd {
+    margin: 0;                   /* removes the default indent */
+}
+ 
+/* Apply button */
+ 
+.apply-link {
+    margin: 1.5rem 0 0;
+}
+ 
+.apply-link a {
+    display: inline-block;
+    padding: 0.6rem 1.2rem;
+    font-weight: bold;
+    color: #ffffff;
+    background-color: #c2410c;
+    border-radius: 4px;
+    text-decoration: none;
+}
+ 
+.apply-link a:hover {
+    color: #ffffff;
+    background-color: #9a3412;
+}
+ 
+ 
+
+/* 6. Home page (index.html) */
+
+.home .logo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.home .logo img {
+    display: block;
+    border-radius: 8px;
+}
+
+/* Space between the page sections */
+.home main > section {
+    margin-bottom: 2.5rem;
+}
+
+.home main > section > h2 {
+    margin-top: 0;
+}
+
+.home .section-intro {
+    max-width: 60ch;
+}
+
+/* Hero: text on the left, image on the right */
+.home .hero {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 2rem;
+    align-items: center;
+    padding: 2.5rem;
+    color: #ffffff;
+    background-color: #1f3a5f;
+    border-radius: 6px;
+}
+
+.home .hero h1 {
+    margin-bottom: 0.25rem;
+    font-size: 2.75rem;
+    color: #ffffff;
+}
+
+.home .hero p {
+    max-width: 55ch;
+}
+
+.home .eyebrow {
+    display: inline-block;
+    margin-bottom: 1rem;
+    padding: 0.2rem 0.8rem;
+    font-size: 0.85rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #ffffff;
+    background-color: #c2410c;
+    border-radius: 999px;
+}
+
+.home .hero-img {
+    width: 100%;                 
+    height: auto;
+    border-radius: 6px;
+}
+
+/* Buttons (links and the search button) */
+.home .btn,
+.home .search-row button {
+    display: inline-block;
+    padding: 0.6rem 1.2rem;
+    font: inherit;
+    font-weight: bold;
+    color: #ffffff;
+    background-color: #c2410c;
+    border: 0;
+    border-radius: 4px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.home .btn:hover,
+.home .search-row button:hover {
+    color: #ffffff;
+    background-color: #9a3412;
+}
+
+/* White button used on the dark blue hero */
+.home .btn-light {
+    color: #1f3a5f;
+    background-color: #ffffff;
+}
+
+.home .btn-light:hover {
+    color: #1f3a5f;
+    background-color: #f0f4f8;
+}
+
+/* Search box */
+.home .search-box {
+    padding: 1rem 1.5rem;
+    background-color: #ffffff;
+    border: 1px solid #d6d3cc;
+    border-radius: 6px;
+}
+
+.home .search-box label {
+    display: block;
+    margin-bottom: 0.4rem;
+    font-weight: bold;
+    color: #1f3a5f;
+}
+
+.home .search-row {
+    display: flex;
+    gap: 0.75rem;
+    max-width: 36rem;
+}
+
+.home .search-row input[type="search"] {
+    flex: 1;                     
+    padding: 0.6rem 0.8rem;
+    font: inherit;
+    border: 2px solid #1f3a5f;
+    border-radius: 4px;
+}
+
+.home .search-row input[type="search"]:focus {
+    outline: 3px solid #1a5aa6;
+    outline-offset: 2px;
+}
+
+/* Numbers strip */
+.home .stats-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 1rem;
+    margin: 0;
+    padding: 1.25rem;
+    list-style: none;
+    text-align: center;
+    background-color: #f0f4f8;
+    border-radius: 6px;
+}
+
+.home .stats-list strong {
+    display: block;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 1.9rem;
+    color: #1f3a5f;
+}
+
+/* Cards (benefits and vacancies) */
+.home .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.home .card {
+    padding: 1.5rem;
+    background-color: #ffffff;
+    border: 1px solid #d6d3cc;
+    border-top: 6px solid #1f3a5f;
+    border-radius: 6px;
+}
+
+.home .card h3 {
+    margin-top: 0;
+}
+
+.home .card:hover {
+    border-top-color: #c2410c;
+}
+
+.home .card .meta {
+    font-weight: bold;
+    color: #9a3412;
+}
+
+/* Table with merged cells */
+.home .timeline {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #ffffff;
+}
+
+.home .timeline caption {
+    padding: 0.5rem 0;
+    font-weight: bold;
+    text-align: left;
+    color: #1f3a5f;
+}
+
+.home .timeline th,
+.home .timeline td {
+    padding: 0.75rem 1rem;
+    text-align: left;
+    border: 1px solid #d6d3cc;
+}
+
+.home .timeline thead th {
+    text-align: center;
+    color: #ffffff;
+    background-color: #1f3a5f;
+}
+
+.home .timeline tbody th {
+    color: #1f3a5f;
+    background-color: #f0f4f8;
+}
+
+.home .timeline tbody tr:nth-child(even) td {
+    background-color: #faf9f6;
+}
+
+/* Row highlight on mouse hover */
+.home .timeline tbody tr:hover td {
+    background-color: #fff7ed;
+}
+
+.home .timeline tfoot td {
+    font-weight: bold;
+    text-align: center;
+    color: #ffffff;
+    background-color: #c2410c;
+}
+
+/* Call to action */
+.home .cta {
+    padding: 2rem 1.5rem;
+    text-align: center;
+    background-color: #fff7ed;
+    border: 2px solid #c2410c;
+    border-radius: 6px;
+}
+
+.home .cta h2 {
+    color: #9a3412;
+}
+
+.home .cta p {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 55ch;
+}
+
+/* Footer links (Jira, GitHub, email) */
+.home .footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.5rem;
+    margin-top: 0;
+    margin-bottom: 1rem;
+    padding: 0;
+    list-style: none;
+}
+
+.home .footer-links a {
+    color: #ffffff;
+}
+
+.home .footer-links a:hover {
+    color: #ffdd57;
+}
+
+
+
+/* 7. Apply page (apply.html) */
+
+/* Thingy to use (gen by AI): 
+
+  -- Layout & Display --
+  - display: flex               : Turns on flexible layout to easily align items.
+  - flex-direction: column      : Stacks items in a vertical column instead of a row.
+  - flex-wrap                   : Allows items to wrap onto the next line if they run out of space.
+
+  -- Box Model (Size & Spacing) --
+  - width                       : Sets how wide an element is.
+  - min-height                  : Sets the smallest height an element can be.
+  - margin                      : Controls the outside space around an element.
+  - padding                     : Controls the inside space between content and its border.
+  - gap                         : Adds space between items.
+  - box-sizing                  : Controls how element width and height are calculated with padding/border.
+
+  -- Appearance & Borders --
+  - background-color            : Changes the background color.
+  - border                      : Adds an outline around an element.
+  - border-radius               : Rounds out the corners of an element.
+  - opacity                     : Sets how transparent or clear an element is.
+
+  -- Typography (Text Styling) --
+  - font-family                 : Changes the font style of the text.
+  - font-size                   : Changes the size of the text.
+  - font-weight                 : Makes text bold or normal.
+  - font                        : Sets the text style (size, family, etc.).
+  - color                       : Changes the text color.
+  - text-align                  : Aligns text to the left, right, or center.
+
+  -- Interaction & Behavior --
+  - cursor                      : Changes how the mouse pointer looks when hovering over it.
+  - resize                      : Lets users change the size of a box (like a textarea).
+  - transition                  : Makes style changes (like hover effects) smooth over time.
+
+*/
+
+/* making the form into a column */
+.apply-page form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+/* styles for each group */
+.apply-page fieldset {
+    margin: 0;
+    padding: 1rem;
+    background-color: #ffffff;
+    border: 1px solid #d6d3cc;
+    border-radius: 6px;
+}
+
+.apply-page legend,
+.apply-page label {
+    font-weight: bold;
+    color: #1f3a5f;
+}
+
+.apply-page fieldset p {
+    margin: 1rem 0;
+}
+
+.apply-page input[type="text"],
+.apply-page input[type="date"],
+.apply-page input[type="email"],
+.apply-page input[type="tel"],
+.apply-page select,
+.apply-page textarea {
+    width: 100%;
+    padding: 0.5rem;
+    font: inherit;
+    border: 1px solid #aebaca;
+    border-radius: 4px;
+}
+
+/* size of checkbox/ */
+.apply-page input[type="checkbox"],
+.apply-page input[type="radio"] {
+    width: auto;
+    margin-right: 0.4rem;
+}
+
+.apply-page textarea {
+    min-height: 8rem;
+    resize: vertical;
+}
+
+/* space between buttons */
+.apply-page form > p {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin: 0;
+}
+
+/* submit and reset buttons */
+.apply-page button {
+    padding: 0.5rem 1rem;
+    color: #ffffff;
+    background-color: #c2410c;
+    border: 0;
+    cursor: pointer;
+}
+
+.apply-page button:hover {
+    background-color: #9a3412;
+}
+ 
+/* 8. About page (about.html) - teammate to add */
+/* About content sections */
+.about-section {
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background-color: #ffffff;
+    border: 1px solid #d6d3cc;
+    border-top: 6px solid #1f3a5f;
+    border-radius: 6px;
+}
+
+.about-section h2 {
+    margin-top: 0;
+}
+
+.about-section h3 {
+    margin-top: 1.5rem;
+}
+
+/* Group and class information */
+.group-details {
+    padding: 1rem 1.5rem;
+    background-color: #f0f4f8;
+    border: 1px solid #d6d3cc;
+    border-radius: 6px;
+}
+
+.group-details ul {
+    margin-bottom: 0;
+}
+
+/* Group member cards */
+.group-members {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.group-members .member-card {
+    padding: 1.25rem;
+    border: 1px solid #d6d3cc;
+    border-top: 5px solid #1f3a5f;
+    border-radius: 6px;
+}
+
+.group-members .member-card:nth-child(1) {
+    background-color: #eef4f8;
+}
+
+.group-members .member-card:nth-child(2) {
+    background-color: #fff7ed;
+}
+
+.group-members .member-card:nth-child(3) {
+    background-color: #eef5ef;
+}
+
+.group-members .member-card:nth-child(4) {
+    background-color: #f3f0f8;
+}
+
+.group-members .member-card h3 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+
+.group-members .member-card ul {
+    margin-bottom: 0;
+    padding-left: 1.25rem;
+}
+
+.group-members .member-card li {
+    margin-bottom: 0.75rem;
+    overflow-wrap: anywhere;
+}
+
+/* Group photo */
+figure {
+    margin: 1rem 0 0;
+    padding: 1rem;
+    text-align: center;
+    background-color: #f0f4f8;
+    border: 1px solid #d6d3cc;
+    border-radius: 6px;
+}
+
+figure img {
+    display: block;
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    margin: 0 auto;
+}
+
+figcaption {
+    margin-top: 0.75rem;
+    color: #222222;
+}
+
+/* Fun facts table */
+table {
+    width: 100%;
+    margin-top: 1rem;
+    border-collapse: collapse;
+    background-color: #ffffff;
+}
+
+caption {
+    margin-bottom: 0.75rem;
+    color: #1f3a5f;
+    font-weight: bold;
+    text-align: left;
+}
+
+th,
+td {
+    padding: 0.75rem;
+    border: 1px solid #d6d3cc;
+    text-align: left;
+}
+
+th {
+    color: #ffffff;
+    background-color: #1f3a5f;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f0f4f8;
+}
+
+/* Contact information */
+address {
+    font-style: normal;
+    line-height: 1.8;
+}
+
+.contact-section {
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+}
+
+/* Responsive layout */
+@media (max-width: 600px) {
+    .about-section {
+        padding: 1rem;
+    }
+
+    .group-members {
+        grid-template-columns: 1fr;
+    }
+
+    th,
+    td {
+        padding: 0.5rem;
+        font-size: 0.9rem;
+    }
+}
+ 
+/* 9. Accessibility: skip link and keyboard focus */
+ 
+/* Skip link is moved off-screen until keyboard focus */
+.skip-link {
+    position: absolute;
+    top: 0;
+    left: -9999px;
+}
+ 
+.skip-link:focus {
+    left: 1rem;
+    top: 1rem;
+    z-index: 10;
+    padding: 0.75rem 1rem;
+    font-weight: bold;
+    color: #111111;
+    background-color: #ffdd57;
+}
+ 
+/* Focus style for keyboard users */
+a:focus {
+    outline: 1px solid #111111;
+    color: #111111;
+    background-color: #ffdd57;
+}
+ 
+ 
