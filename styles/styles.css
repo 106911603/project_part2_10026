@@ -13,7 +13,8 @@ description: The external stylesheet for the LearnBridge Careers
              website. Styles all 4 pages.
 
 acknowledgements: Generative AI (Claude, by Anthropic) was used to review
-                  sections 4 to help with layout.
+                  sections 4 to help with layout, 
+                  and for choosing colors in the pallete.
                   All code was checked and edited by the author.
 
 Contents
@@ -453,6 +454,49 @@ abbr[title] {
     }
 }
 
+/* Tablets and phones:  floats are removed and the aside sits under the job list */
+@media (max-width: 900px) {
+    .job-list,
+    .sidebar {
+        float: none;
+        width: auto;
+    }
+
+    .sidebar {
+        margin: 0 0 2rem;
+    }
+
+    /* Two vacancy links per row */
+    .job-links li {
+        flex-basis: 45%;
+    }
+}
+
+/* Phones */
+@media (max-width: 600px) {
+    /* One vacancy link per row */
+    .job-links li {
+        flex-basis: 100%;
+    }
+
+    .job {
+        padding: 1rem;
+    }
+
+    /* Each label sits above its value instead of beside it */
+    .job-summary {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .job-summary dd {
+        margin-bottom: 0.6rem;
+    }
+
+    .job-summary dd:last-child {
+        margin-bottom: 0;
+    }
+}
  
 
 /* 6. Home page (index.html) */
