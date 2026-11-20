@@ -443,8 +443,16 @@ abbr[title] {
     background-color: #8c1826;
 }
 
+/* Jobs page: responsive layout */
+
+/* The aside stays in view for wide and tall screens */
+@media (min-width: 901px) and (min-height: 800px) {
+    .sidebar {
+        position: sticky;
+        top: 1rem;
+    }
 }
- 
+
  
 
 /* 6. Home page (index.html) */
