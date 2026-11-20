@@ -7,7 +7,7 @@ author: Minh Nguyen (sections 1 to 5, and 9)
 
 created: 10/23/2026
 
-last modified: 18/11/2026
+last modified: 20/11/2026
 
 description: The external stylesheet for the LearnBridge Careers
              website. Styles all 4 pages.
@@ -1076,4 +1076,30 @@ a:focus {
     background-color: #ffdd57;
 }
  
+/* Phones: smaller titles and less padding so more content fits */
+@media (max-width: 600px) {
+    #main {
+        padding: 1.5rem 1rem;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    h2 {
+        font-size: 1.4rem;
+    }
+
+    .site-header {
+        padding: 0.75rem 1rem;
+    }
+
+    .logo {
+        font-size: 1.25rem;
+    }
+
+    .menu a {
+        padding: 0.5rem 0.55rem;
+    }
+}
  
