@@ -231,9 +231,24 @@ abbr[title] {
  
 /* Page introduction */
  
-/* make the intro paragraphs slightly larger */
+/* Slightly larger intro text */
 .page-intro p {
+    max-width: 70ch;
     font-size: 1.125rem;
+}
+
+/* Reference code - Claude help with ticket styling*/
+.ref-code {
+    display: inline-block;
+    padding: 0 0.4rem;
+    font-family: "Courier New", Courier, monospace;
+    font-size: 0.95em;
+    font-weight: bold;
+    letter-spacing: 0.08em;
+    color: #7a5312;
+    background-color: #fbf4e4;
+    border: 1px dashed #b07d2b;
+    border-radius: 3px;
 }
  
 /* Current vacancies menu */
