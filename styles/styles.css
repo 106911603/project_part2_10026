@@ -321,9 +321,9 @@ abbr[title] {
     width: 25%;
     margin: 0 0 1.5rem 3%;
     padding: 1.25rem;
-    border: 2px solid #c2410c;
+    border: 2px solid #b07d2b;
     border-radius: 6px;
-    background-color: #fff7ed;
+    background-color: #fbf4e4;
 }
   
 /* Sidebar contents */
@@ -331,7 +331,7 @@ abbr[title] {
 .sidebar h2 {
     margin-top: 0;
     font-size: 1.25rem;
-    color: #9a3412;
+    color: #7a5312;
 }
  
 .sidebar ol {
@@ -340,6 +340,13 @@ abbr[title] {
  
 .sidebar li {
     margin-bottom: 0.5rem;
+}
+
+/* Styles only the numbers of the ordered list */
+.sidebar li::marker {
+    font-family: Georgia, "Times New Roman", serif;
+    font-weight: bold;
+    color: #7a5312;
 }
  
 /* Remove extra space under the last paragraph */
@@ -354,8 +361,14 @@ abbr[title] {
     padding: 1.5rem;
     background-color: #ffffff;
     border: 1px solid #d6d3cc;
-    border-top: 6px solid #1f3a5f;
+    border-top: 6px solid #6a1424;
     border-radius: 6px;
+    scroll-margin-top: 1rem;      /* leaves a gap above the card after a jump link */
+}
+
+/* :target matches the job whose id is in the page address after a jump link */
+.job:target {
+    border-top-color: #b07d2b;
 }
  
 .job h2 {
@@ -369,6 +382,10 @@ abbr[title] {
 .job h3 {
     padding-bottom: 0.25rem;
     border-bottom: 2px solid #e8e5de;
+}
+
+.job section p {
+    max-width: 68ch;
 }
  
 .job ul {
