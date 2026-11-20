@@ -409,13 +409,13 @@ abbr[title] {
     gap: 0.4rem 1rem;
     margin: 0 0 1rem;
     padding: 1rem;
-    background-color: #f0f4f8;
+    background-color: #f5edea;
     border-radius: 4px;
 }
  
 .job-summary dt {
     font-weight: bold;
-    color: #1f3a5f;
+    color: #6a1424;
 }
  
 .job-summary dd {
@@ -433,7 +433,7 @@ abbr[title] {
     padding: 0.6rem 1.2rem;
     font-weight: bold;
     color: #ffffff;
-    background-color: #c2410c;
+    background-color: #b3202f;
     border-radius: 4px;
     text-decoration: none;
 }
