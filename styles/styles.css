@@ -300,6 +300,14 @@ abbr[title] {
     border-left-color: #b07d2b;
 }
 
+/* Two-column layout */
+
+/* Clearfix: both columns are floated, so this empty block after them
+   makes the container stretch to the bottom of the taller column */
+.jobs-layout::after {
+    content: "";
+    display: block;
+    clear: both;
 }
  
 .job-list {
