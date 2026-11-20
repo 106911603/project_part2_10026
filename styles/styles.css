@@ -13,7 +13,7 @@ description: The external stylesheet for the LearnBridge Careers
              website. Styles all 4 pages.
 
 acknowledgements: Generative AI (Claude, by Anthropic) was used to review
-                  sections 4 to help with layout, 
+                  sections 4 and jobs page to help with layout, 
                   and for choosing colors in the pallete.
                   All code was checked and edited by the author.
 
@@ -1060,6 +1060,16 @@ address {
 }
  
 /* Focus style for keyboard users */
+
+a:focus,
+button:focus,
+input:focus,
+select:focus,
+textarea:focus {
+    outline: 3px solid #111111;
+    box-shadow: 0 0 0 6px #ffdd57;
+}
+
 a:focus {
     outline: 1px solid #111111;
     color: #111111;
