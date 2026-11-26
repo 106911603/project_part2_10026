@@ -31,7 +31,7 @@
     <!-- AI used in CSS embedding -->
     <p class="form-intro" style="font-style: italic;">Tell us about yourself and the role you are interested in.</p>
 
-    <form>
+    <form action="process_eoi.php" method="POST" novalidate>
       <fieldset>
         <legend>Application details</legend>
         <p>
@@ -110,19 +110,19 @@
         <legend>Skills</legend>
         <p>Choose any skills that apply.</p>
         <p>
-          <input type="checkbox" id="skill-html-css" name="skills" value="html-css">
+          <input type="checkbox" id="skill-html-css" name="skills[]" value="html-css">
           <label for="skill-html-css">HTML and CSS</label>
         </p>
         <p>
-          <input type="checkbox" id="skill-javascript" name="skills" value="javascript">
+          <input type="checkbox" id="skill-javascript" name="skills[]" value="javascript">
           <label for="skill-javascript">JavaScript</label>
         </p>
         <p>
-          <input type="checkbox" id="skill-web-design" name="skills" value="web-design">
+          <input type="checkbox" id="skill-web-design" name="skills[]" value="web-design">
           <label for="skill-web-design">Web design</label>
         </p>
         <p>
-          <input type="checkbox" id="skill-accessibility" name="skills" value="accessibility">
+          <input type="checkbox" id="skill-accessibility" name="skills[]" value="accessibility">
           <label for="skill-accessibility">Accessibility</label>
         </p>
     
