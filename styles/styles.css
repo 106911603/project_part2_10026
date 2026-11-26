@@ -1,6 +1,6 @@
 /*
 
-filename: styles.css  
+filename: styles.css
 
 author: Minh Nguyen (sections 1 to 5, and 9)
         Sections 6 to 8 were written by the respective group members.
@@ -10,22 +10,24 @@ created: 10/23/2026
 last modified: 20/11/2026
 
 description: The external stylesheet for the LearnBridge Careers
-             website. Styles all 4 pages.
+             website. Styles every page.
 
 acknowledgements: Generative AI (Claude, by Anthropic) was used to review
                   sections 4 and jobs page to help with layout, 
                   and for choosing colors in the pallete.
+                  For Project Part 2, Claude also helped with some of
+                  the new layout.
                   All code was checked and edited by the author.
 
 Contents
     1.  Colour reference
     2.  Base styles (all pages)
-    3.  Header and main menu (all pages)
-    4.  Footer (all pages)
-    5.  Jobs page (jobs.html)
-    6.  Home page (index.html)
-    7.  Apply page (apply.html)
-    8.  About page (about.html)
+    3.  Header and main menu (all pages: header.inc and nav.inc)
+    4.  Footer (all pages: footer.inc)
+    5.  Jobs page (jobs.php)
+    6.  Home page (index.php)
+    7.  Apply page (apply.php)
+    8.  About page (about.php)
     9.  Accessibility: skip link and keyboard focus
 */
  
@@ -139,10 +141,10 @@ abbr[title] {
     margin: 0 auto;              /* centers the content */
     padding: 2rem 1.5rem;
 }
- 
- 
-/* 3. Header and main menu (all pages) */
- 
+
+
+/* 3. Header and main menu (all pages: header.inc and nav.inc) */
+
 .site-header {
     display: flex;             /* logo on the left, menu on the right */
     flex-wrap: wrap;           /* menu drops below the logo on small screens */
@@ -195,8 +197,8 @@ abbr[title] {
 }
  
 
-/* 4. Footer (all pages) */
- 
+/* 4. Footer (all pages: footer.inc) */
+
 .site-footer {
     margin-top: 2rem;
     padding: 2rem 1.5rem;
@@ -226,10 +228,21 @@ abbr[title] {
 .site-footer a:hover {
     color: #ffdd57;
 }
- 
- 
-/* 5. Jobs page (jobs.html) */
- 
+
+/* Project links and contact email */
+.site-footer .footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.5rem;
+    margin-top: 0;
+    margin-bottom: 1rem;
+    padding: 0;
+    list-style: none;
+}
+
+
+/* 5. Jobs page (jobs.php) */
+
 /* Page introduction */
  
 /* Slightly larger intro text */
@@ -499,7 +512,7 @@ abbr[title] {
 }
  
 
-/* 6. Home page (index.html) */
+/* 6. Home page (index.php) */
 
 .home .logo {
     display: flex;
@@ -749,28 +762,8 @@ abbr[title] {
     max-width: 55ch;
 }
 
-/* Footer links (Jira, GitHub, email) */
-.home .footer-links {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem 1.5rem;
-    margin-top: 0;
-    margin-bottom: 1rem;
-    padding: 0;
-    list-style: none;
-}
 
-.home .footer-links a {
-    color: #ffffff;
-}
-
-.home .footer-links a:hover {
-    color: #ffdd57;
-}
-
-
-
-/* 7. Apply page (apply.html) */
+/* 7. Apply page (apply.php) */
 
 /* Thingy to use (gen by AI): 
 
@@ -879,8 +872,8 @@ abbr[title] {
 .apply-page button:hover {
     background-color: #8c1826;
 }
- 
-/* 8. About page (about.html) - teammate to add */
+
+/* 8. About page (about.php) */
 /* About content sections */
 .about-section {
     margin-bottom: 2rem;
@@ -1102,4 +1095,4 @@ a:focus {
         padding: 0.5rem 0.55rem;
     }
 }
- 
+ 

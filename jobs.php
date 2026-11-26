@@ -1,39 +1,26 @@
-<!DOCTYPE html>
-<!--
-  filename: jobs.html  
-
+<?php
+/*
+  filename: jobs.php
   author: Minh Nguyen
-
-  created: 10/05/2026
-
-  last modified: 11/18/2026
-
-  description: Job Descriptions page for LearnBridge. 
-               Lists 4 open roles, a "How to apply" sidebar 
-               and the agency's inclusive employment statement.
-
-  acknowledgements: see the comment inside the head.
--->
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-
-  <!--
-    Acknowledgements
+  created: 05/10/2026 (as jobs.html)
+  description: Job Descriptions page.
+  acknowledgements:
     - Salary ranges were checked against Payscale (Melbourne salary data, 2026)
       and the Robert Half 2026 Salary Guide (Melbourne).
-    - Acknowledgement of Country wording follows the Traditional Custodians
-      named by the City of Melbourne (Wurundjeri Woi-wurrung and Bunurong
-      peoples of the Kulin Nation).
     - Generative AI (Claude, by Anthropic) was used to review this page against
       the assignment rubric and to help with layout.
       All content was checked and edited by the author.
-  -->
-
+*/
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Job vacancies at LearnBridge, a creative digital media agency: front-end developers, UX/UI designer and digital content designer.">
   <meta name="keywords" content="LearnBridge, jobs, careers, front-end developer, UX designer, UI designer, digital content, creative agency">
   <meta name="author" content="Minh Nguyen">
+  <!-- External CSS -->
   <link rel="stylesheet" href="styles/styles.css">
 
   <!-- Embedded CSS || Used in Inclusion Section -->
@@ -71,29 +58,16 @@
 </head>
  
 <body>
-  <!-- Skip link -->
-  <a class="skip-link" href="#main">Skip to main content</a>
-  
-  <!-- Common header and menu  -->
-  <header class="site-header">
-    <p class="logo">LearnBridge Careers</p>
-    <nav aria-label="Main navigation">
-      <ul class="menu">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="jobs.html" aria-current="page">Job Descriptions</a></li>
-        <li><a href="apply.html">Apply</a></li>
-        <li><a href="about.html">About</a></li>
-      </ul>
-    </nav>
-  </header>
- 
+  <!-- Common header and menu -->
+<?php include "header.inc"; ?>
+
   <main id="main">
     
     <!-- Page intro -->
     <section class="page-intro">
       <h1>Job Descriptions</h1>
       <p>LearnBridge is a creative digital media agency in Melbourne. We design websites, build brands and produce digital content for clients in education, health, the arts and small business. Our team of 24 designers, developers and content creators works closely with each client from first sketch to launch.</p>
-      <p>We are growing and have four roles open. Read the details below, note the reference number, then <a href="apply.html">submit your application</a>.</p>
+      <p>We are growing and have four roles open. Read the details below, note the reference number, then <a href="apply.php">submit your application</a>.</p>
     </section>
 
     <!-- In-page menu -->
@@ -171,8 +145,8 @@
               <li>Latest laptop and a second screen for home.</li>
             </ul>
           </section>
- 
-          <p class="apply-link"><a href="apply.html">Apply for Front-End Web Developer</a></p>
+
+          <p class="apply-link"><a href="apply.php">Apply for Front-End Web Developer</a></p>
         </article>
  
         <!-- Junior Front-End Developer -->
@@ -233,8 +207,8 @@
               <li>A clear path to a mid-level developer role.</li>
             </ul>
           </section>
- 
-          <p class="apply-link"><a href="apply.html">Apply for Junior Front-End Developer</a></p>
+
+          <p class="apply-link"><a href="apply.php">Apply for Junior Front-End Developer</a></p>
         </article>
  
         <!-- UX/UI Designer -->
@@ -297,8 +271,8 @@
               <li>Flexible start and finish times.</li>
             </ul>
           </section>
- 
-          <p class="apply-link"><a href="apply.html">Apply for UX/UI Designer</a></p>
+
+          <p class="apply-link"><a href="apply.php">Apply for UX/UI Designer</a></p>
         </article>
  
         <!-- Digital Content Designer -->
@@ -359,8 +333,8 @@
               <li>Access to our licensed stock image and font libraries.</li>
             </ul>
           </section>
- 
-          <p class="apply-link"><a href="apply.html">Apply for Digital Content Designer</a></p>
+
+          <p class="apply-link"><a href="apply.php">Apply for Digital Content Designer</a></p>
         </article>
  
       </div>
@@ -372,7 +346,7 @@
         <ol>
           <li>Choose a role and note its 5-character reference number.</li>
           <li>Prepare your resume and a link to your portfolio.</li>
-          <li>Complete the form on our <a href="apply.html">Apply page</a>.</li>
+          <li>Complete the form on our <a href="apply.php">Apply page</a>.</li>
           <li>We will reply to every applicant within 10 working days.</li>
           <li>Shortlisted applicants are invited to a 45-minute interview, online or in person.</li>
         </ol>
@@ -405,12 +379,8 @@
     </section>
  
   </main>
- 
+
   <!-- Footer -->
-  <footer class="site-footer">
-    <h2>Acknowledgement of Country</h2>
-    <p>LearnBridge acknowledges the Wurundjeri Woi-wurrung and Bunurong peoples of the Kulin Nation, the Traditional Custodians of the land on which our Melbourne studio stands. We pay our respects to their Elders past and present, and extend that respect to all Aboriginal and Torres Strait Islander peoples.</p>
-    <p>&copy; 2026 LearnBridge Pty Ltd. All rights reserved. This is a student project and LearnBridge is a fictional company.</p>
-  </footer>
+<?php include "footer.inc"; ?>
 </body>
 </html>

@@ -1,3 +1,11 @@
+<?php
+/*
+  filename: index.php
+  author: Nguyen Tri Dung (page content)
+          Minh Nguyen (conversion to PHP)
+  description: Home page.
+*/
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,7 +15,6 @@
   <title>Careers at LearnBridge | Home</title>
   <link rel="stylesheet" href="styles/styles.css">
 
-  
   <style>
     .home .slogan {
       font-size: 1.3rem;
@@ -17,22 +24,8 @@
   </style>
 </head>
 <body class="home">
-  <a class="skip-link" href="#main">Skip to main content</a>
-
-  <header class="site-header">
-    <div class="logo">
-      <img src="logo.svg" alt="LearnBridge logo" width="44" height="44">
-      <span>LearnBridge Careers</span>
-    </div>
-    <nav aria-label="Main navigation">
-      <ul class="menu">
-        <li><a href="index.html" aria-current="page">Home</a></li>
-        <li><a href="jobs.html">Job Descriptions</a></li>
-        <li><a href="apply.html">Apply</a></li>
-        <li><a href="about.html">About</a></li>
-      </ul>
-    </nav>
-  </header>
+  <!-- Common header and menu -->
+<?php include "header.inc"; ?>
 
   <main id="main">
     <section class="hero">
@@ -41,14 +34,14 @@
         <h1>LearnBridge</h1>
         <p class="slogan">Learning without barriers</p>
         <p>LearnBridge is an educational technology company creating accessible and inclusive digital learning tools. We are growing our team and looking for web developers and designers who care about great education.</p>
-        <p><a class="btn btn-light" href="jobs.html">View open positions</a></p>
+        <p><a class="btn btn-light" href="jobs.php">View open positions</a></p>
       </div>
       <img class="hero-img" src="hero.svg" alt="Illustration of a laptop showing an online lesson with
        a book and a bridge symbol" width="480" height="320">
     </section>
 
     <section>
-      <form class="search-box" action="jobs.html" method="get" role="search">
+      <form class="search-box" action="jobs.php" method="get" role="search">
         <label for="search">Search for a job</label>
         <div class="search-row">
           <input type="search" id="search" name="q" placeholder="e.g. front-end developer">
@@ -98,19 +91,19 @@
           <h3>Front-End Web Developer</h3>
           <p class="meta">Melbourne (hybrid) &middot; Full-time</p>
           <p>Build responsive, accessible interfaces with semantic HTML and modern CSS.</p>
-          <p><a class="btn" href="jobs.html#FED26">Read more</a></p>
+          <p><a class="btn" href="jobs.php#FED26">Read more</a></p>
         </li>
         <li class="card">
           <h3>UX/UI Designer</h3>
           <p class="meta">Melbourne (hybrid) &middot; Full-time</p>
           <p>Design inclusive learning experiences for students of all abilities.</p>
-          <p><a class="btn" href="jobs.html#UXD26">Read more</a></p>
+          <p><a class="btn" href="jobs.php#UXD26">Read more</a></p>
         </li>
         <li class="card">
           <h3>Digital Content Designer</h3>
           <p class="meta">Remote (Australia) &middot; Part-time</p>
           <p>Audit our platform with assistive technology and recommend fixes.</p>
-          <p><a class="btn" href="jobs.html#DCD26">Read more</a></p>
+          <p><a class="btn" href="jobs.php#DCD26">Read more</a></p>
         </li>
       </ul>
     </section>
@@ -163,18 +156,11 @@
     <section class="cta">
       <h2>Ready to join LearnBridge?</h2>
       <p>Send us your resume and tell us why you would like to help build the future of education.</p>
-      <p><a class="btn" href="apply.html">Apply now</a></p>
+      <p><a class="btn" href="apply.php">Apply now</a></p>
     </section>
   </main>
 
-  <footer class="site-footer">
-    <h2>Project links and contact</h2>
-    <ul class="footer-links">
-      <li><a href="https://dn507454.atlassian.net/jira/software/projects/GW/boards/2/backlog?atlOrigin=eyJpIjoiYWIxYzQ2YTI1ZTY4NGRhYWI0MzVhYWNmYTI5YjNlMmUiLCJwIjoiaiJ9">Jira project</a></li>
-      <li><a href="https://github.com/nguyentridung27072006/project_part1_10026.git">GitHub repository</a></li>
-      <li><a href="mailto:info@learnbridge.example">info@learnbridge.example</a></li>
-    </ul>
-    <p>&copy; 2026 LearnBridge Pty Ltd. All rights reserved.</p>
-  </footer>
+  <!-- Footer -->
+<?php include "footer.inc"; ?>
 </body>
 </html>

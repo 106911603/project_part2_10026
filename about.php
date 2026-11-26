@@ -1,4 +1,11 @@
-
+<?php
+/*
+  filename: about.php
+  author: Vu Minh Viet (page content)
+          Minh Nguyen (conversion to PHP)
+  description: About page: the company and the project team.
+*/
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,20 +20,8 @@
 </head>
 
 <body>
-    <a class="skip-link" href="#main">Skip to main content</a>
-
-    <header class="site-header">
-    <p class="logo">LearnBridge Careers</p>
-
-    <nav aria-label="Main navigation">
-        <ul class="menu">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="jobs.html">Job Descriptions</a></li>
-            <li><a href="apply.html">Apply</a></li>
-            <li><a href="about.html" aria-current="page">About</a></li>
-        </ul>
-    </nav>
-</header>
+    <!-- Common header and menu -->
+<?php include "header.inc"; ?>
 
     <main id="main">
         <h1>About LearnBridge</h1>
@@ -165,52 +160,23 @@
             </table>
         </section>
 
-<footer class="site-footer">
-    <section class="footer-contact">
-        <h2>Contact Us</h2>
-        <address>
-            LearnBridge Pty Ltd<br>
-            123 Street, Melbourne VIC 3000, Australia<br>
-            Email:
-            <a href="mailto:G06@learnbridge.edu.au">
-                G06@learnbridge.edu.au
-            </a><br>
-            Phone:
-            <a href="tel:+61390000000">+61 3 9000 0000</a>
-        </address>
-    </section>
+        <!-- Contact details -->
+        <section class="contact-section">
+            <h2>Contact Us</h2>
+            <address>
+                LearnBridge Pty Ltd<br>
+                123 Street, Melbourne VIC 3000, Australia<br>
+                Email:
+                <a href="mailto:G06@learnbridge.edu.au">
+                    G06@learnbridge.edu.au
+                </a><br>
+                Phone:
+                <a href="tel:+61390000000">+61 3 9000 0000</a>
+            </address>
+        </section>
+    </main>
 
-    <section class="footer-acknowledgement">
-        <h2>Acknowledgement of Country</h2>
-        <p>
-            LearnBridge acknowledges the Wurundjeri Woi-wurrung and Bunurong
-            peoples of the Kulin Nation, the Traditional Custodians of the
-            land on which our Melbourne studio stands. We pay our respects
-            to their Elders past and present, and extend that respect to all
-            Aboriginal and Torres Strait Islander peoples.
-        </p>
-    </section>
-
-    <p class="copyright">
-        &copy; 2026 LearnBridge Pty Ltd. All rights reserved.
-        This is a student project and LearnBridge is a fictional company.
-    </p>
-
-    <h2>Project Links</h2>
-    <ul>
-        <li>
-            <a href="https://github.com/nguyentridung27072006/project_part1_10026.git"
-               target="_blank" rel="noopener noreferrer">
-                GitHub Repository
-            </a>
-        </li>
-        <li>
-            <a href="https://dn507454.atlassian.net/jira/software/projects/GW/summary"
-               target="_blank" rel="noopener noreferrer">
-                Jira Project
-            </a>
-        </li>
-    </ul>
-</footer>
+    <!-- Footer -->
+<?php include "footer.inc"; ?>
 </body>
 </html>

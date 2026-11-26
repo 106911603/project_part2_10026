@@ -1,10 +1,19 @@
+<?php
+/*
+  filename: apply.php
+  author: Nguyen Ba Thanh Trung (page content)
+          Minh Nguyen (conversion to PHP)
+  description: Job application form.
+*/
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <!-- AI used in mobile's view -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Apply LearnBridge Careers</title>
+  <meta name="description" content="Apply online for a job at LearnBridge, a creative digital media agency.">
+  <title>Apply | LearnBridge Careers</title>
   <link rel="stylesheet" href="styles/styles.css">
   <!-- AI used in CSS embedding -->
   <style>
@@ -14,19 +23,8 @@
   </style>
 </head>
 <body class="apply-page">
-  <header class="site-header">
-    <div class="logo">
-      <span>LearnBridge Careers</span>
-    </div>
-    <nav aria-label="Main navigation">
-      <ul class="menu">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="jobs.html">Job Descriptions</a></li>
-        <li><a href="apply.html" aria-current="page">Apply</a></li>
-        <li><a href="about.html">About</a></li>
-      </ul>
-    </nav>
-  </header>
+  <!-- Common header and menu -->
+<?php include "header.inc"; ?>
 
   <main id="main">
     <h1>Apply to LearnBridge</h1>
@@ -169,8 +167,7 @@
     </form>
   </main>
 
-  <footer class="site-footer">
-    <p>Have any questions? Email <a href="mailto:random@gmail.com">random@gmail.com</a></p>
-  </footer>
+  <!-- Footer -->
+<?php include "footer.inc"; ?>
 </body>
 </html>
