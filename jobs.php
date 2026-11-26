@@ -119,6 +119,9 @@ if ($job_count > 0) {
 <?php
 if ($job_count > 0) {
 ?>
+    <!-- Search bar -->
+<?php include "search_form.inc"; ?>
+
     <!-- In-page menu -->
     <nav class="job-links" aria-labelledby="vacancies-heading">
       <h2 id="vacancies-heading">Current vacancies</h2>
