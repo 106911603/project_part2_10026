@@ -59,45 +59,18 @@
           <input type="text" id="suburb-town" name="suburb-town" maxlength="40" required>
         </p>
         <p>
-          <label for="province">City</label><br>
-          <!--giving cities'name to AI because too much -->
-          <select id="province" name="province" required>
-            <option value="">Select a city</option>
-            <option value="An Giang">An Giang</option>
-            <option value="Bac Ninh">Bắc Ninh</option>
-            <option value="Ca Mau">Cà Mau</option>
-            <option value="Can Tho">Cần Thơ</option>
-            <option value="Cao Bang">Cao Bằng</option>
-            <option value="Da Nang">Đà Nẵng</option>
-            <option value="Dak Lak">Đắk Lắk</option>
-            <option value="Dien Bien">Điện Biên</option>
-            <option value="Dong Nai">Đồng Nai</option>
-            <option value="Dong Thap">Đồng Tháp</option>
-            <option value="Gia Lai">Gia Lai</option>
-            <option value="Ha Tinh">Hà Tĩnh</option>
-            <option value="Hai Phong">Hải Phòng</option>
-            <option value="Hanoi">Hà Nội</option>
-            <option value="Ho Chi Minh City">Thành phố Hồ Chí Minh</option>
-            <option value="Hue">Huế</option>
-            <option value="Hung Yen">Hưng Yên</option>
-            <option value="Khanh Hoa">Khánh Hòa</option>
-            <option value="Lai Chau">Lai Châu</option>
-            <option value="Lam Dong">Lâm Đồng</option>
-            <option value="Lang Son">Lạng Sơn</option>
-            <option value="Lao Cai">Lào Cai</option>
-            <option value="Nghe An">Nghệ An</option>
-            <option value="Ninh Binh">Ninh Bình</option>
-            <option value="Phu Tho">Phú Thọ</option>
-            <option value="Quang Ngai">Quảng Ngãi</option>
-            <option value="Quang Ninh">Quảng Ninh</option>
-            <option value="Quang Tri">Quảng Trị</option>
-            <option value="Son La">Sơn La</option>
-            <option value="Tay Ninh">Tây Ninh</option>
-            <option value="Thai Nguyen">Thái Nguyên</option>
-            <option value="Thanh Hoa">Thanh Hóa</option>
-            <option value="Tuyen Quang">Tuyên Quang</option>
-            <option value="Vinh Long">Vĩnh Long</option>
-          </select>
+          <label for="province">State</label><br>      
+            <select id="province" name="province" required>
+              <option value="">State</option>
+              <option value="VIC">VIC</option>
+              <option value="NSW">NSW</option>
+              <option value="QLD">QLD</option>
+              <option value="NT">NT</option>
+              <option value="WA">WA</option>
+              <option value="SA">SA</option>
+              <option value="TAS">TAS</option>
+              <option value="ACT">ACT</option>
+            </select>
         </p>
         <p>
           <label for="postcode">Postcode</label><br>
