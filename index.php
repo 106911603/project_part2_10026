@@ -41,7 +41,7 @@
     </section>
 
     <section>
-      <form class="search-box" action="jobs.php" method="get" role="search">
+      <form class="search-box" action="search.php" method="get" role="search">
         <label for="search">Search for a job</label>
         <div class="search-row">
           <input type="search" id="search" name="q" placeholder="e.g. front-end developer">
