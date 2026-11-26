@@ -52,7 +52,7 @@ Contents
     #b07d2b  brass        - accent lines
     #7a5312  dark brass   - aside headings, reference code text, step numbers
     #e3b765  light brass  - underline for the current page in the menu
-    #fbf4e4  cream        - aside and reference code background
+    #fbf4e4  cream        - aside, reference code and message box background
 
     Neutrals
     #f6f5f2  off-white    - page background
@@ -455,6 +455,17 @@ abbr[title] {
 .apply-link a:hover {
     color: #ffffff;
     background-color: #8c1826;
+}
+
+/* Message box */
+
+.notice {
+    margin: 0 0 2rem;
+    padding: 1rem 1.25rem;
+    background-color: #fbf4e4;
+    border: 1px solid #d6d3cc;
+    border-left: 6px solid #b07d2b;
+    border-radius: 4px;
 }
 
 /* Jobs page: responsive layout */

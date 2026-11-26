@@ -3,22 +3,62 @@
   filename: jobs.php
   author: Minh Nguyen
   created: 05/10/2026 (as jobs.html)
-  description: Job Descriptions page.
+  description: Job Descriptions page. The jobs are read from the jobs table.
   acknowledgements:
     - Salary ranges were checked against Payscale (Melbourne salary data, 2026)
       and the Robert Half 2026 Salary Guide (Melbourne).
-    - Generative AI (Claude, by Anthropic) was used to review this page against
-      the assignment rubric and to help with layout.
+    - Generative AI (Claude, by Anthropic) was used to review this page and
+      to help with layout and the database code.
       All content was checked and edited by the author.
 */
+
+require_once "settings.php";
+require_once "job_functions.inc";
+
+$jobs = array();
+$db_error = false;
+
+// Database errors throw an exception, handled in catch below
+mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
+
+try {
+    $conn = mysqli_connect($host, $user, $pwd, $sql_db);
+    mysqli_set_charset($conn, "utf8mb4");
+
+    $query = "SELECT job_ref, title, salary_min, salary_max, salary_note,
+                     reports_to, location, employment_type, closing_date,
+                     description, responsibilities, essential, preferable, benefits
+              FROM jobs
+              ORDER BY closing_date, job_ref";
+    $result = mysqli_query($conn, $query);
+
+    while ($row = mysqli_fetch_assoc($result)) {
+        $jobs[] = $row;
+    }
+
+    mysqli_free_result($result);
+    mysqli_close($conn);
+} catch (mysqli_sql_exception $e) {
+    $db_error = true;
+
+    // Logged for the developer, never shown on the page
+    error_log("jobs.php database error: " . $e->getMessage());
+}
+
+$job_count = count($jobs);
+if ($job_count == 1) {
+    $roles_text = "1 role";
+} else {
+    $roles_text = "$job_count roles";
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Job vacancies at LearnBridge, a creative digital media agency: front-end developers, UX/UI designer and digital content designer.">
-  <meta name="keywords" content="LearnBridge, jobs, careers, front-end developer, UX designer, UI designer, digital content, creative agency">
+  <meta name="description" content="Current job vacancies at LearnBridge, a creative digital media agency in Melbourne, with salary, requirements and how to apply.">
+  <meta name="keywords" content="LearnBridge, jobs, careers, vacancies, creative agency, web design, digital content, Melbourne">
   <meta name="author" content="Minh Nguyen">
   <!-- External CSS -->
   <link rel="stylesheet" href="styles/styles.css">
@@ -67,276 +107,54 @@
     <section class="page-intro">
       <h1>Job Descriptions</h1>
       <p>LearnBridge is a creative digital media agency in Melbourne. We design websites, build brands and produce digital content for clients in education, health, the arts and small business. Our team of 24 designers, developers and content creators works closely with each client from first sketch to launch.</p>
-      <p>We are growing and have four roles open. Read the details below, note the reference number, then <a href="apply.php">submit your application</a>.</p>
+<?php
+if ($job_count > 0) {
+?>
+      <p>We are growing and have <?php echo $roles_text; ?> open. Read the details below, note the reference number, then <a href="apply.php">submit your application</a>.</p>
+<?php
+}
+?>
     </section>
 
+<?php
+if ($job_count > 0) {
+?>
     <!-- In-page menu -->
     <nav class="job-links" aria-labelledby="vacancies-heading">
       <h2 id="vacancies-heading">Current vacancies</h2>
       <ul>
-        <li><a href="#FED26">Front-End Web Developer <span class="ref-code">FED26</span></a></li>
-        <li><a href="#JFD26">Junior Front-End Developer <span class="ref-code">JFD26</span></a></li>
-        <li><a href="#UXD26">UX/UI Designer <span class="ref-code">UXD26</span></a></li>
-        <li><a href="#DCD26">Digital Content Designer <span class="ref-code">DCD26</span></a></li>
+<?php
+    foreach ($jobs as $job) {
+        $ref = htmlspecialchars($job["job_ref"]);
+        $title = htmlspecialchars($job["title"]);
+        echo "        <li><a href=\"#$ref\">$title <span class=\"ref-code\">$ref</span></a></li>\n";
+    }
+?>
       </ul>
     </nav>
- 
+<?php
+}
+?>
+
     <!-- Two columns: job list on the left, aside floated on the right -->
     <div class="jobs-layout">
       <div class="job-list">
+<?php
+if ($db_error) {
+?>
+        <p class="notice">Sorry, we cannot show our job list right now. Please try again later, or email our hiring team at <a href="mailto:info@learnbridge.example">info@learnbridge.example</a>.</p>
+<?php
+} elseif ($job_count == 0) {
+?>
+        <p class="notice">We have no open roles at the moment. Please check back soon.</p>
+<?php
+} else {
+    foreach ($jobs as $job) {
+        print_job($job);
+    }
+}
+?>
 
-        <!-- Front-End Web Developer -->
-        <article class="job" id="FED26">
-          <h2>Front-End Web Developer</h2>
- 
-          <dl class="job-summary">
-            <dt>Reference number</dt>
-            <dd><span class="ref-code">FED26</span></dd>
-            <dt>Salary</dt>
-            <dd>$90,000 &ndash; $105,000 per year</dd>
-            <dt>Reports to</dt>
-            <dd>Head of Development</dd>
-            <dt>Location</dt>
-            <dd>Melbourne CBD, VIC (hybrid: 3 days in the studio)</dd>
-            <dt>Employment type</dt>
-            <dd>Full-time, permanent</dd>
-            <dt>Closing date</dt>
-            <dd><time datetime="2026-11-30">30 November 2026</time></dd>
-          </dl>
- 
-          <section>
-            <h3>About the role</h3>
-            <p>You will turn our designers' layouts into fast, responsive and accessible websites for clients. You will work in a small project team with a designer and an account manager, and help keep our code standards high across every launch.</p>
-          </section>
- 
-          <section>
-            <h3>Key responsibilities</h3>
-            <ul>
-              <li>Build client websites from Figma designs using semantic HTML5 and CSS3.</li>
-              <li>Make sure every site meets <abbr title="Web Content Accessibility Guidelines">WCAG</abbr> 2.2 AA before launch.</li>
-              <li>Test layouts on different browsers, screen sizes and devices.</li>
-              <li>Maintain our shared library of reusable page components.</li>
-              <li>Review code written by junior developers and give helpful feedback.</li>
-            </ul>
-          </section>
- 
-          <section>
-            <h3>Requirements</h3>
-            <h4>Essential</h4>
-            <ul>
-              <li>At least 3 years of experience building websites professionally.</li>
-              <li>Strong skills in HTML5, CSS3, Flexbox and Grid.</li>
-              <li>Good knowledge of web accessibility and HTML validation.</li>
-              <li>Experience using Git for version control.</li>
-            </ul>
-            <h4>Preferable</h4>
-            <ul>
-              <li>Experience with a content management system such as WordPress.</li>
-              <li>Some JavaScript experience.</li>
-              <li>Previous work in a design or digital agency.</li>
-            </ul>
-          </section>
- 
-          <section>
-            <h3>What we offer</h3>
-            <ul>
-              <li>$1,500 yearly budget for training, courses and conferences.</li>
-              <li>Flexible start and finish times.</li>
-              <li>Latest laptop and a second screen for home.</li>
-            </ul>
-          </section>
-
-          <p class="apply-link"><a href="apply.php">Apply for Front-End Web Developer</a></p>
-        </article>
- 
-        <!-- Junior Front-End Developer -->
-        <article class="job" id="JFD26">
-          <h2>Junior Front-End Developer</h2>
- 
-          <dl class="job-summary">
-            <dt>Reference number</dt>
-            <dd><span class="ref-code">JFD26</span></dd>
-            <dt>Salary</dt>
-            <dd>$65,000 &ndash; $72,000 per year</dd>
-            <dt>Reports to</dt>
-            <dd>Senior Front-End Developer</dd>
-            <dt>Location</dt>
-            <dd>Melbourne CBD, VIC (hybrid: 3 days in the studio)</dd>
-            <dt>Employment type</dt>
-            <dd>Full-time, permanent</dd>
-            <dt>Closing date</dt>
-            <dd><time datetime="2026-11-30">30 November 2026</time></dd>
-          </dl>
- 
-          <section>
-            <h3>About the role</h3>
-            <p>This is an entry-level role for a recent graduate or career changer who wants to grow as a web developer. You will be paired with a senior developer as your mentor and work on real client projects from your first month.</p>
-          </section>
- 
-          <section>
-            <h3>Key responsibilities</h3>
-            <ul>
-              <li>Build and update web pages for client projects with support from senior developers.</li>
-              <li>Fix layout and content issues reported by clients.</li>
-              <li>Check pages with the W3C validator and accessibility testing tools.</li>
-              <li>Write clear notes so other team members can understand your code.</li>
-            </ul>
-          </section>
- 
-          <section>
-            <h3>Requirements</h3>
-            <h4>Essential</h4>
-            <ul>
-              <li>A qualification, bootcamp or self-taught portfolio in web development.</li>
-              <li>Solid understanding of HTML5 and CSS3.</li>
-              <li>A willingness to learn and to ask questions.</li>
-            </ul>
-            <h4>Preferable</h4>
-            <ul>
-              <li>Basic knowledge of Git and GitHub.</li>
-              <li>An understanding of accessibility basics such as alt text and heading order.</li>
-              <li>Personal or study projects published online.</li>
-            </ul>
-          </section>
- 
-          <section>
-            <h3>What we offer</h3>
-            <ul>
-              <li>A structured 12-month mentoring program.</li>
-              <li>Paid study leave for relevant courses.</li>
-              <li>A clear path to a mid-level developer role.</li>
-            </ul>
-          </section>
-
-          <p class="apply-link"><a href="apply.php">Apply for Junior Front-End Developer</a></p>
-        </article>
- 
-        <!-- UX/UI Designer -->
-        <article class="job" id="UXD26">
-          <h2>UX/UI Designer</h2>
- 
-          <dl class="job-summary">
-            <dt>Reference number</dt>
-            <dd><span class="ref-code">UXD26</span></dd>
-            <dt>Salary</dt>
-            <dd>$85,000 &ndash; $100,000 per year</dd>
-            <dt>Reports to</dt>
-            <dd>Creative Director</dd>
-            <dt>Location</dt>
-            <dd>Melbourne CBD, VIC (hybrid: 3 days in the studio)</dd>
-            <dt>Employment type</dt>
-            <dd>Full-time, permanent</dd>
-            <dt>Closing date</dt>
-            <dd><time datetime="2026-12-07">7 December 2026</time></dd>
-          </dl>
- 
-          <section>
-            <h3>About the role</h3>
-            <p>You will design websites that are easy and enjoyable for everyone to use. You will lead client workshops, research what users need, and turn that research into clear, accessible designs that our developers can build.</p>
-          </section>
- 
-          <section>
-            <h3>Key responsibilities</h3>
-            <ul>
-              <li>Run discovery workshops with clients to understand their goals.</li>
-              <li>Create user flows, wireframes and interactive prototypes in Figma.</li>
-              <li>Plan and run usability tests, including with people who use assistive technology.</li>
-              <li>Design page layouts that follow each client's brand and style guide.</li>
-              <li>Work closely with developers so the final website matches the design.</li>
-            </ul>
-          </section>
- 
-          <section>
-            <h3>Requirements</h3>
-            <h4>Essential</h4>
-            <ul>
-              <li>At least 3 years of experience in UX or UI design.</li>
-              <li>A portfolio showing your design process, not only final screens.</li>
-              <li>Strong skills in Figma or a similar design tool.</li>
-              <li>Knowledge of colour contrast, readable typography and inclusive design.</li>
-            </ul>
-            <h4>Preferable</h4>
-            <ul>
-              <li>Basic knowledge of HTML and CSS.</li>
-              <li>Experience presenting design ideas to clients.</li>
-              <li>Experience creating or maintaining a design system.</li>
-            </ul>
-          </section>
- 
-          <section>
-            <h3>What we offer</h3>
-            <ul>
-              <li>$1,500 yearly budget for training, courses and conferences.</li>
-              <li>One paid creative day each month for personal projects.</li>
-              <li>Flexible start and finish times.</li>
-            </ul>
-          </section>
-
-          <p class="apply-link"><a href="apply.php">Apply for UX/UI Designer</a></p>
-        </article>
- 
-        <!-- Digital Content Designer -->
-        <article class="job" id="DCD26">
-          <h2>Digital Content Designer</h2>
- 
-          <dl class="job-summary">
-            <dt>Reference number</dt>
-            <dd><span class="ref-code">DCD26</span></dd>
-            <dt>Salary</dt>
-            <dd>$70,000 &ndash; $82,000 per year</dd>
-            <dt>Reports to</dt>
-            <dd>Creative Director</dd>
-            <dt>Location</dt>
-            <dd>Remote (anywhere in Australia), with monthly studio visits</dd>
-            <dt>Employment type</dt>
-            <dd>Part-time (3 days per week), 12-month contract</dd>
-            <dt>Closing date</dt>
-            <dd><time datetime="2026-12-14">14 December 2026</time></dd>
-          </dl>
- 
-          <section>
-            <h3>About the role</h3>
-            <p>You will create the graphics, short videos and social media content that help our clients' brands come to life online. You will work from each client's brand guidelines and make sure all content is accessible, with captions and clear text.</p>
-          </section>
- 
-          <section>
-            <h3>Key responsibilities</h3>
-            <ul>
-              <li>Design graphics for websites, social media and email campaigns.</li>
-              <li>Edit short videos and add accurate captions.</li>
-              <li>Write clear alt text for every image you produce.</li>
-              <li>Keep all content consistent with each client's brand guidelines.</li>
-            </ul>
-          </section>
- 
-          <section>
-            <h3>Requirements</h3>
-            <h4>Essential</h4>
-            <ul>
-              <li>At least 2 years of experience in graphic or digital design.</li>
-              <li>Strong skills in Adobe Photoshop, Illustrator and Premiere Pro, or similar tools.</li>
-              <li>A portfolio of digital or social media work.</li>
-            </ul>
-            <h4>Preferable</h4>
-            <ul>
-              <li>Experience with motion graphics in After Effects.</li>
-              <li>Photography skills.</li>
-              <li>Experience writing short copy for websites or social media.</li>
-            </ul>
-          </section>
- 
-          <section>
-            <h3>What we offer</h3>
-            <ul>
-              <li>Work from home with a home office allowance.</li>
-              <li>Flexible choice of working days.</li>
-              <li>Access to our licensed stock image and font libraries.</li>
-            </ul>
-          </section>
-
-          <p class="apply-link"><a href="apply.php">Apply for Digital Content Designer</a></p>
-        </article>
- 
       </div>
  
       <!-- Sidebar - Extra Info
