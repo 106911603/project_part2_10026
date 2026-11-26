@@ -24,7 +24,7 @@ Contents
     2.  Base styles (all pages)
     3.  Header and main menu (all pages: header.inc and nav.inc)
     4.  Footer (all pages: footer.inc)
-    5.  Jobs page (jobs.php)
+    5.  Jobs page and job search (jobs.php, search.php)
     6.  Home page (index.php)
     7.  Apply page (apply.php)
     8.  About page (about.php)
@@ -44,7 +44,7 @@ Contents
     #360a12  deep maroon  - footer background
     #8a2a3a  mid red      - menu link hover
     #a11d33  link red     - links
-    #b3202f  bright red   - button background
+    #b3202f  bright red   - button background (Apply and Search buttons)
     #8c1826  button red   - button background on hover
     #f5edea  pale blush   - job summary and vacancy link backgrounds
 
@@ -241,7 +241,7 @@ abbr[title] {
 }
 
 
-/* 5. Jobs page (jobs.php) */
+/* 5. Jobs page and job search (jobs.php, search.php) */
 
 /* Page introduction */
  
@@ -264,7 +264,68 @@ abbr[title] {
     border: 1px dashed #b07d2b;
     border-radius: 3px;
 }
- 
+
+/* Job search bar */
+
+.job-search {
+    margin-bottom: 2rem;
+    padding: 1rem 1.5rem 1.25rem;
+    background-color: #ffffff;
+    border: 1px solid #d6d3cc;
+    border-radius: 6px;
+}
+
+.job-search label {
+    display: block;
+    margin-bottom: 0.75rem;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #6a1424;
+}
+
+.job-search-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    max-width: 40rem;
+}
+
+.job-search input[type="search"] {
+    flex: 1 1 12rem;
+    padding: 0.6rem 0.8rem;
+    font: inherit;
+    color: #222222;
+    background-color: #ffffff;
+    border: 2px solid #6a1424;
+    border-radius: 4px;
+}
+
+.job-search button {
+    padding: 0.6rem 1.4rem;
+    font: inherit;
+    font-weight: bold;
+    color: #ffffff;
+    background-color: #b3202f;
+    border: 0;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.job-search button:hover {
+    background-color: #8c1826;
+}
+
+.job-search-hint {
+    margin: 0.5rem 0 0;
+    font-size: 0.95rem;
+}
+
+.search-summary {
+    margin: 0 0 1.5rem;
+    font-size: 1.125rem;
+}
+
 /* Current vacancies menu */
  
 .job-links {
