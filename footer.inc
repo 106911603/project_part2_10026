@@ -3,6 +3,7 @@
   filename: footer.inc
   author: Minh Nguyen
   created: 16/11/2026
+  last modified: 26/11/2026
   description: Footer included on every page.
   acknowledgements: Acknowledgement of Country wording follows the
                     Traditional Custodians named by the City of Melbourne.
