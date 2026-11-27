@@ -12,15 +12,15 @@
 function print_list($text) {
     $items = explode("\n", $text);
 
-    echo "            <ul>\n";
+    echo "<ul>\n";
     foreach ($items as $item) {
         $item = trim($item);
 
         if ($item != "") {
-            echo "              <li>" . htmlspecialchars($item) . "</li>\n";
+            echo "<li>" . htmlspecialchars($item) . "</li>\n";
         }
     }
-    echo "            </ul>\n";
+    echo "</ul>\n";
 }
 
 
