@@ -36,31 +36,31 @@
         <legend>Application details</legend>
         <p>
           <label for="job-reference">Job reference number</label><br>
-          <input type="text" id="job-reference" name="job-reference" pattern="[A-Za-z0-9]{5}" maxlength="5" title="Enter exactly 5 letters or numbers." required>
+          <input type="text" id="job-reference" name="job-reference" title="Enter exactly 5 letters or numbers.">
         </p>
         <p>
           <label for="first-name">First name</label><br>
-          <input type="text" id="first-name" name="first-name" pattern="[A-Za-z ]{1,20}" maxlength="20" title="Use up to 20 letters." required>
+          <input type="text" id="first-name" name="first-name" title="Use up to 20 letters.">
         </p>
         <p>
           <label for="last-name">Last name</label><br>
-          <input type="text" id="last-name" name="last-name" pattern="[A-Za-z ]{1,20}" maxlength="20" title="Use up to 20 letters." required>
+          <input type="text" id="last-name" name="last-name" title="Use up to 20 letters.">
         </p>
         <p>
           <label for="date-of-birth">Date of birth</label><br>
-          <input type="date" id="date-of-birth" name="date-of-birth" required>
+          <input type="date" id="date-of-birth" name="date-of-birth">
         </p>
         <p>
           <label for="street-address">Street address</label><br>
-          <input type="text" id="street-address" name="street-address" maxlength="40" required>
+          <input type="text" id="street-address" name="street-address">
         </p>
         <p>
           <label for="suburb-town">Suburb / Town</label><br>
-          <input type="text" id="suburb-town" name="suburb-town" maxlength="40" required>
+          <input type="text" id="suburb-town" name="suburb-town">
         </p>
         <p>
           <label for="province">State</label><br>      
-            <select id="province" name="province" required>
+            <select id="province" name="province">
               <option value="">State</option>
               <option value="VIC">VIC</option>
               <option value="NSW">NSW</option>
@@ -75,16 +75,16 @@
         <p>
           <label for="postcode">Postcode</label><br>
           <!-- limit at 4 digits -->
-          <input type="text" id="postcode" name="postcode" pattern="[0-9]{4}" maxlength="4" title="Enter exactly 4 digits." required>
+          <input type="text" id="postcode" name="postcode" title="Enter exactly 4 digits.">
         </p>
         <p>
           <label for="email">Email address</label><br>
-          <input type="email" id="email" name="email" required>
+          <input type="email" id="email" name="email">
         </p>
         <p>
           <label for="phone">Phone number</label><br>
           <!-- pattern limits number, 8 to 12 nums */-->
-          <input type="tel" id="phone" name="phone" pattern="[0-9]{8,12}" title="Enter 8 to 12 digits." required>
+          <input type="tel" id="phone" name="phone" title="Enter 8 to 12 digits.">
         </p>
       </fieldset>
 
@@ -92,7 +92,7 @@
       <fieldset>
         <legend>Gender</legend>
         <p>
-          <input type="radio" id="gender-female" name="gender" value="female" required>
+          <input type="radio" id="gender-female" name="gender" value="female">
           <label for="gender-female">Female</label>
         </p>
         <p>
