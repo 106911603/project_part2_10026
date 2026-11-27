@@ -3,6 +3,7 @@
   filename: header.inc
   author: Minh Nguyen
   created: 16/11/2026
+  last modified: 26/11/2026
   description: Skip link, site name and main menu, included on every page.
 */
 ?>
